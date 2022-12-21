@@ -8,5 +8,5 @@ We are using Python to:
 - Read in multiple flat files efficiently.
 - Join tables to provide a single source of information.
 - Shape & aggregate sales data to calculate KPIs.
-- Visualize the data to communicate your findings
+- Visualize the data to communicate the findings.
 

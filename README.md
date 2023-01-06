@@ -1,6 +1,6 @@
 # Maven Mega Mart
 
-### still in progress
+### not completed - still in progress
 
 Maven MegaMart is a multinational corporation that operates a chain of retail and grocery stores. They recently received a sample of data from a new retailer 
 they’re looking to acquire, and they need to identify and deliver key insights about their sales history.<br/>

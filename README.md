@@ -162,7 +162,7 @@ We have 668 households for analysis.
 
 ### Sum of Sales value by Income category
 
-![09.png](Resurces/09.png)
+![09.png](Resources/09.png)
 
 This is the most common household income demographis in the US, but it worth nothing that even our under-15K and 25-34K demographics are much higher than some of the higher income demographic. so, if we are looking at the discount retailor, it makes sense that we're attracting a lot of these lower income groups and this is expected by a leadership.
 

@@ -47,7 +47,7 @@ dtypes = {
 transactions = pd.read_csv(path, dtype=dtypes, usecols=cols)
 ```
 
-![01.png](resources/01.png)
+![01.png](Resources/01.png)
 
 #### Now we need to create Data column based on the value of 'DAY' for `transaction` table and drop the `"DAY"` column
 ```
@@ -57,7 +57,7 @@ transactions = transactions.assign(
 ).drop(["DAY"], axis=1)
 ```
 
-![02.png](resources/02.png)
+![02.png](Resources/02.png)
 
 ### Time Based Analysis
 In this analysis on ```transaction``` dataframe we will:
@@ -77,7 +77,7 @@ To have a full set of household observations we should filter down the date. By 
 .plot())
 plt.title("Sales by Month")
 ```
-![03.png](resources/03.png)
+![03.png](Resources/03.png)
 
 ### _ Sales by Year
 
@@ -92,7 +92,7 @@ plt.title("Sales by Month")
 )
 plt.figure(figsize=(4, 3))
 ```
-![04.png](resources/04.png)
+![04.png](Resources/04.png)
 
 Ignoring the ramp of from Jan 2016 ( line orange ) and the sharp decline in the last month of 2017 ( line blue ), we can see clearly our overal of 2017 sales are higher than 2016. We also see a couple similar seasonal fluctuations that do look much stronger in 2017.
 
@@ -104,12 +104,12 @@ Ignoring the ramp of from Jan 2016 ( line orange ) and the sharp decline in the 
 .plot.bar())
 plt.title("Total Sales by Week Day")
 ```
-![05.png](resources/05.png)
+![05.png](Resources/05.png)
 
 Based on the bar chart, highest sales are on Monday and Tuesday followed by Sunday. It might be interesting to dive further into why more customers are coming in on these days.
 
 ### Sum of Sales by Households
-![06.png](resources/06.png)
+![06.png](Resources/06.png)
 
 <br/>
 
@@ -132,7 +132,7 @@ dem_cols = ["AGE_DESC", "INCOME_DESC", "household_key", "HH_COMP_DESC"]
 dem_dtypes = {"AGE_DESC": "category", "INCOME_DESC": "category", "HH_COMP_DESC": "category"}
 demographics = pd.read_csv("data/hh_demographic.csv", usecols=dem_cols, dtype=dem_dtypes)
 ```
-![05.png](resources/05.png)
+![05.png](Resources/05.png)
 
 <br/>
 
@@ -146,12 +146,12 @@ household_sales_demo = (household_sales.merge(demographics,
                         ))
 ```
 
-![07.png](resources/07.png)
+![07.png](Resources/07.png)
 
 We have 668 households for analysis.
 
 ### Sum of Sales value by Age category
-![08.png](resources/08.png)
+![08.png](Resources/08.png)
 
 ### Sum of Sales value by Income category
 ![09.png](resurces/09.png)
@@ -168,7 +168,7 @@ To show the households composition by a heat-map. This shows us which our demogr
                                   margins=True)
                      .style.background_gradient(cmap="RdYlGn", axis=None)
  ```
- ![10.png](resources/10.png)
+ ![10.png](Resources/10.png)
  
 The heatmap shows that our average sales for single parent homes at a young age (19-24) have a very high sales. so, we should figure out how to help these single family homes as part of shopping experience. we might also look at focusing on families with children in general; is there a way that we can revamp our product distribution, is there a way that we can target our marketing more specificly towards these groups.
 
@@ -182,7 +182,7 @@ For this analysis we will:
 * Finally, pivot the fully joined dataframe by AGE_DESC and DEPARTMENT, calculating the sum of sales. 
 * and take a look ate Which category is led by our youngest age demographic?
 
-![11.png](resources/11.png)
+![11.png](Resources/11.png)
 
 <br/>
 
@@ -194,7 +194,7 @@ trans_demo_dept = (transactions.merge(demographics, how="inner", left_on="househ
 
 trans_demo_dept.head()
 ```
-![12.png](resources/12.png)
+![12.png](Resources/12.png)
 
 <br/>
 
@@ -209,7 +209,7 @@ This pivot table helps us to to look at the areas among young customers. Are the
     ).style.background_gradient(cmap="RdYlGn", axis=1)
 )
 ```
-![13.png](resources/13.png)
+![13.png](Resources/13.png)
 
 The young customers are interested in SPIRITS ( alcohol )!
 

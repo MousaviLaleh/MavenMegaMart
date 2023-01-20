@@ -42,7 +42,7 @@ dtypes = {
     "QUANTITY": "Int32",
     "STORE_ID": "Int32"
 }
-# store the data into transaction dataframe
+
 transactions = pd.read_csv(path, dtype=dtypes, usecols=cols)
 `
 

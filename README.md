@@ -48,7 +48,7 @@ transactions = pd.read_csv(path, dtype=dtypes, usecols=cols)
 
 ![01.png](resources/01.png)
 
-#### create Data column based on the value of 'DAY' for `transaction` table and drop the `"DAY"` column
+now we need to create Data column based on the value of 'DAY' for `transaction` table and drop the `"DAY"` column
 ```
 transactions = transactions.assign(
     Date = (pd.to_datetime("2016", format='%Y')

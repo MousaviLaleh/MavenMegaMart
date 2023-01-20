@@ -29,3 +29,28 @@ We also going to combine our data in some way to perform these analysis.
 - Optimize the import workflow
 - Write out summary tables for stakeholders
 
+
+## Read the data and change the columns' data type
+
+### transaction dataframe
+'
+path = "data/project_transactions.csv"
+cols = ["household_key", "BASKET_ID", "DAY", "PRODUCT_ID", "QUANTITY", "SALES_VALUE"]
+dtypes = {
+    "DAY": "Int64",
+    "QUANTITY": "Int32",
+    "STORE_ID": "Int32"
+}
+# store the data into transaction dataframe
+transactions = pd.read_csv(path, dtype=dtypes, usecols=cols)
+'
+![01.png](resources/01.pg)
+
+#### create Data column based on the value of 'DAY' for 'transaction' table and drop the "DAY" column
+'
+transactions = transactions.assign(
+    Date = (pd.to_datetime("2016", format='%Y')
+    + pd.to_timedelta(transactions["DAY"].sub(1).astype(str) + ' days'))
+).drop(["DAY"], axis=1)
+'
+![02.png](resources/02.png)

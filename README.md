@@ -115,6 +115,7 @@ plt.title("Total Sales by Week Day")
 Based on the bar chart, highest sales are on Monday and Tuesday followed by Sunday. It might be interesting to dive further into why more customers are coming in on these days.
 
 ### Sum of Sales by Households
+
 ![06.png](Resources/06.png)
 
 <br/>
@@ -139,6 +140,7 @@ dem_dtypes = {"AGE_DESC": "category", "INCOME_DESC": "category", "HH_COMP_DESC":
 demographics = pd.read_csv("data/hh_demographic.csv", usecols=dem_cols, dtype=dem_dtypes)
 ```
 ![05.png](Resources/05.png)
+
 <br/>
 ### Join ```household``` table to ```demographic``` table
 To analyze the demographics of our households
@@ -158,7 +160,7 @@ We have 668 households for analysis.
 ![08.png](Resources/08.png)
 
 ### Sum of Sales value by Income category
-![09.png](resurces/09.png)
+![09.png](Resurces/09.png)
 
 This is the most common household income demographis in the US, but it worth nothing that even our under-15K and 25-34K demographics are much higher than some of the higher income demographic. so, if we are looking at the discount retailor, it makes sense that we're attracting a lot of these lower income groups and this is expected by a leadership.
 

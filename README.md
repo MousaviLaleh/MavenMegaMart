@@ -31,6 +31,7 @@ We also going to combine our data in some way to perform these analysis.
 
 
 ## Read the data and change the columns' data type
+To start the anlysis we need to read the data from CSV file and work on the columns.
 
 ### transaction dataframe
 
@@ -48,7 +49,7 @@ transactions = pd.read_csv(path, dtype=dtypes, usecols=cols)
 
 ![01.png](resources/01.png)
 
-now we need to create Data column based on the value of 'DAY' for `transaction` table and drop the `"DAY"` column
+#### Now we need to create Data column based on the value of 'DAY' for `transaction` table and drop the `"DAY"` column
 ```
 transactions = transactions.assign(
     Date = (pd.to_datetime("2016", format='%Y')
@@ -57,3 +58,5 @@ transactions = transactions.assign(
 ```
 
 ![02.png](resources/02.png)
+
+

@@ -83,7 +83,7 @@ plt.title("Sales by Month")
 .loc[ :, ["SALES_VALUE"]]
 .resample("M")
 .sum()
-.assign(year_prior = lambda x: x["SALES_VALUE"].shift(12))    #creates a new column for the dataframe, year_prior, which shifts our date down by 12 to get year 
+.assign(year_prior = lambda x: x["SALES_VALUE"].shift(12))    #creates a new column for the dataframe, year_prior, which shifts our date down by 12 to get the year data
 .loc["2017"]
 .plot()
 )

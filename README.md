@@ -32,7 +32,7 @@ We also going to combine our data in some way to perform these analysis.
 
 ## transaction dataframe
 To start our analysis we :
-* First, read in the transactions data.
+* First, read in the ```transactions``` data.
 * Read in the columns household_key, basket_id, STORE_ID, DAY, QUANTITY, and SALES_VALUE.
 * Convert DAY, QUANTITY, and STORE_ID to the smallest appropriate integer type.
 

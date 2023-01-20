@@ -157,9 +157,11 @@ household_sales_demo = (household_sales.merge(demographics,
 We have 668 households for analysis.
 
 ### Sum of Sales value by Age category
+
 ![08.png](Resources/08.png)
 
 ### Sum of Sales value by Income category
+
 ![09.png](Resurces/09.png)
 
 This is the most common household income demographis in the US, but it worth nothing that even our under-15K and 25-34K demographics are much higher than some of the higher income demographic. so, if we are looking at the discount retailor, it makes sense that we're attracting a lot of these lower income groups and this is expected by a leadership.
@@ -174,6 +176,7 @@ To show the households composition by a heat-map. This shows us which our demogr
                                   margins=True)
                      .style.background_gradient(cmap="RdYlGn", axis=None)
  ```
+ 
  ![10.png](Resources/10.png)
  
 The heatmap shows that our average sales for single parent homes at a young age (19-24) have a very high sales. so, we should figure out how to help these single family homes as part of shopping experience. we might also look at focusing on families with children in general; is there a way that we can revamp our product distribution, is there a way that we can target our marketing more specificly towards these groups.
@@ -215,6 +218,7 @@ This pivot table helps us to to look at the areas among young customers. Are the
     ).style.background_gradient(cmap="RdYlGn", axis=1)
 )
 ```
+
 ![13.png](Resources/13.png)
 
 The young customers are interested in SPIRITS ( alcohol )!

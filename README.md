@@ -59,14 +59,14 @@ transactions = transactions.assign(
 
 ![02.png](resources/02.png)
 
-### Time BasedAnalysis
+### Time Based Analysis
 In this analysis on ```transaction``` dataframe we will:
 * Plot the sum of sales by month. Are sales growing over time?
 * Plot the same series after filtering down to dates April 2016 and October 2017.
 * Plot the sum of monthly sales in 2016 vs the monthly sales 2017.
 * Finally, plot total sales by day of week.
 
-### 1. Sales by Month
+### _ Sales by Month
 To have a full set of household observations we should filter down the date. By applying the specific date, we have a nice steady growth month over month, which shows we have a healthy company.
 
 ```
@@ -79,7 +79,7 @@ plt.title("Sales by Month")
 ```
 ![03.png](resources/03.png)
 
-### 2. Sales by Year
+### _ Sales by Year
 
 ```
 (transactions.set_index("Date")
@@ -97,9 +97,12 @@ plt.figure(figsize=(4, 3))
 Ignoring the ramp of from Jan 2016 ( line orange ) and the sharp decline in the last month of 2017 ( line blue ), we can see clearly our overal of 2017 sales are higher than 2016. We also see a couple similar seasonal fluctuations that do look much stronger in 2017.
 
 
-### 3. Total Sales by Week-Day
+### _ Total Sales by Week-Day
 ```
-
+(transactions.groupby(transactions["Date"].dt.day_of_week)
+.agg({"SALES_VALUE" : "sum"})
+.plot.bar())
+plt.title("Total Sales by Week Day")
 ```
 ![05.png](resources/05.png)
 
@@ -107,6 +110,8 @@ Based on the bar chart, highest sales are on Monday and Tuesday followed by Sund
 
 ### Sum of Sales by Households
 ![06.png](resources/06.png)
+
+<br/>
 
 ## demographics dataframe
 We want to understand the composition of our customers and which are our strongest customer segments?
@@ -128,6 +133,8 @@ dem_dtypes = {"AGE_DESC": "category", "INCOME_DESC": "category", "HH_COMP_DESC":
 demographics = pd.read_csv("data/hh_demographic.csv", usecols=dem_cols, dtype=dem_dtypes)
 ```
 ![05.png](resources/05.png)
+
+<br/>
 
 ### Join ```household``` table to ```demographic``` table
 To analyze the demographics of our households
@@ -151,7 +158,7 @@ We have 668 households for analysis.
 
 This is the most common household income demographis in the US, but it worth nothing that even our under-15K and 25-34K demographics are much higher than some of the higher income demographic. so, if we are looking at the discount retailor, it makes sense that we're attracting a lot of these lower income groups and this is expected by a leadership.
 
-### Create Pivot Table
+### Household Composition Heatmap
 To show the households composition by a heat-map. This shows us which our demographic is producing the most revenue by household, and also aloow us to think about ways we can combine our strategy in terms of marketing with our aquisition targets.
 ```
 (household_sales_demo.pivot_table(index="AGE_DESC",
@@ -163,8 +170,9 @@ To show the households composition by a heat-map. This shows us which our demogr
  ```
  ![10.png](resources/10.png)
  
-The heat-map shows that our average sales for single parent homes at a young age (19-24) have a very high sales. so, we should figure out how to help these single family homes as part of shopping experience. we might also look at focusing on families with children in general; is there a way that we can revamp our product distribution, is there a way that we can target our marketing more specificly towards these groups.
+The heatmap shows that our average sales for single parent homes at a young age (19-24) have a very high sales. so, we should figure out how to help these single family homes as part of shopping experience. we might also look at focusing on families with children in general; is there a way that we can revamp our product distribution, is there a way that we can target our marketing more specificly towards these groups.
 
+<br/>
 
 ## product dataframe
 For this analysis we will:
@@ -176,6 +184,7 @@ For this analysis we will:
 
 ![11.png](resources/11.png)
 
+<br/>
 
 ## Join All Tables Toghether
 ```

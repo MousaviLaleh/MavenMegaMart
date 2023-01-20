@@ -30,11 +30,8 @@ We also going to combine our data in some way to perform these analysis.
 - Write out summary tables for stakeholders
 
 
-## Read the data and change the columns' data type
-To start the anlysis we need to read the data from CSV file and work on the columns.
-
-### transaction dataframe
-
+## transaction dataframe
+#### Read the data and work on the columns
 ```
 path = "data/project_transactions.csv"
 cols = ["household_key", "BASKET_ID", "DAY", "PRODUCT_ID", "QUANTITY", "SALES_VALUE"]

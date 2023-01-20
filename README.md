@@ -139,11 +139,14 @@ dem_cols = ["AGE_DESC", "INCOME_DESC", "household_key", "HH_COMP_DESC"]
 dem_dtypes = {"AGE_DESC": "category", "INCOME_DESC": "category", "HH_COMP_DESC": "category"}
 demographics = pd.read_csv("data/hh_demographic.csv", usecols=dem_cols, dtype=dem_dtypes)
 ```
+
 ![05.png](Resources/05.png)
 
 <br/>
+
 ### Join ```household``` table to ```demographic``` table
 To analyze the demographics of our households
+
 ```
 household_sales_demo = (household_sales.merge(demographics,
                         how="inner",

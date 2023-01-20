@@ -139,9 +139,7 @@ dem_dtypes = {"AGE_DESC": "category", "INCOME_DESC": "category", "HH_COMP_DESC":
 demographics = pd.read_csv("data/hh_demographic.csv", usecols=dem_cols, dtype=dem_dtypes)
 ```
 ![05.png](Resources/05.png)
-
 <br/>
-
 ### Join ```household``` table to ```demographic``` table
 To analyze the demographics of our households
 ```

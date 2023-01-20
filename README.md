@@ -31,6 +31,11 @@ We also going to combine our data in some way to perform these analysis.
 
 
 ## transaction dataframe
+To start our analysis we :
+* First, read in the transactions data.
+* Read in the columns household_key, basket_id, STORE_ID, DAY, QUANTITY, and SALES_VALUE.
+* Convert DAY, QUANTITY, and STORE_ID to the smallest appropriate integer type.
+
 #### Read the data and work on the columns
 ```
 path = "data/project_transactions.csv"
@@ -93,4 +98,12 @@ plt.figure(figsize=(4, 3))
 
 Ignoring the ramp of from Jan 2016 ( line orange ) and the sharp decline in the last month of 2017 ( line blue ), we can see clearly our overal of 2017 sales are higher than 2016. We also see a couple similar seasonal fluctuations that do look much stronger in 2017.
 
+
+#### Total Sales by Week-Day
+```
+
+```
+![05.png](resources/05.png)
+
+Based on the bar chart, highest sales are on Monday and Tuesday followed by Sunday. It might be interesting to dive further into why more customers are coming in on these days.
 

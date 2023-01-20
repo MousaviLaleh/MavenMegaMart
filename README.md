@@ -169,7 +169,7 @@ The heat-map shows that our average sales for single parent homes at a young age
 
 
 ## Product Demographic
-With the ``product``` we will go to:
+For this analysis we will:
 * Read in the product csv file.
 * Only read in product_id and department from the product table.
 * Join the product DataFrame to the original transactions and demographics tables, performing an inner join when joining both tables.
@@ -178,5 +178,42 @@ With the ``product``` we will go to:
 
 ![11.png](resources/11.png)
 
+
+## Join All Tables Toghether
+```
+trans_demo_dept = (transactions.merge(demographics, how="inner", left_on="household_key", right_on="household_key")
+                               .merge(product, how="inner", left_on="PRODUCT_ID", right_on="PRODUCT_ID")
+                  )
+
+trans_demo_dept.head()
+```
+![12.png](resources/12.png)
+
+## Department by Age
+This pivot table helps us to to look at the areas among young customers. Are they going to be our next generation of customers for the company?
+```
+(trans_demo_dept.pivot_table(
+    index="DEPARTMENT", 
+    columns="AGE_DESC",
+    values="SALES_VALUE",
+    aggfunc="sum"
+    ).style.background_gradient(cmap="RdYlGn", axis=1)
+)
+```
+![13.png](resources/13.png)
+
+The young customers are interested in SPIRITS ( alcohol )!
+
+### Export Pivot Table to an Excel File
+```
+(trans_demo_dept.pivot_table(
+                            index="DEPARTMENT",
+                            columns="AGE_DESC",
+                            values="SALES_VALUE",
+                            aggfunc="sum"
+                            ).style.background_gradient(cmap="RdYlGn", axis=1)
+                            .to_excel("demographic_category_sales.xlsx", sheet_name="sales_pivot")
+)
+```
 
 

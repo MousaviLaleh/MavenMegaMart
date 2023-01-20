@@ -68,7 +68,7 @@ In this analysis on ```transaction``` dataframe we will:
 * Plot the sum of monthly sales in 2016 vs the monthly sales 2017.
 * Finally, plot total sales by day of week.
 
-#### Sales by Month
+### 1. Sales by Month
 To have a full set of household observations we should filter down the date. By applying the specific date, we have a nice steady growth month over month, which shows we have a healthy company.
 
 ```
@@ -81,7 +81,7 @@ plt.title("Sales by Month")
 ```
 ![03.png](resources/03.png)
 
-#### Sales by Year
+### 2. Sales by Year
 
 ```
 (transactions.set_index("Date")
@@ -99,11 +99,35 @@ plt.figure(figsize=(4, 3))
 Ignoring the ramp of from Jan 2016 ( line orange ) and the sharp decline in the last month of 2017 ( line blue ), we can see clearly our overal of 2017 sales are higher than 2016. We also see a couple similar seasonal fluctuations that do look much stronger in 2017.
 
 
-#### Total Sales by Week-Day
+### 3. Total Sales by Week-Day
 ```
 
 ```
 ![05.png](resources/05.png)
 
 Based on the bar chart, highest sales are on Monday and Tuesday followed by Sunday. It might be interesting to dive further into why more customers are coming in on these days.
+
+
+## demographics dataframe
+We want to understand the composition of our customers and which are our strongest customer segments?
+
+So, we're going to :
+* Read in the hh_demographic.csv file, but only columns AGE_DESC, INCOME_DESC, household_key, and HH_COMP_DESC.
+* Convert the appropriate columns to the category dtype.
+* Group the transactions table by hosehold_id, and calculate the sum of Sales Value by household, and create aggregated household sales DataFrame.
+* Join the demographics DataFrame to the aggregated transactions table. Since we're interested in analyzing the demographic data we have, make sure not to include rows from transactions that don't match.
+* Plot the sum of sales by age_desc and income_desc, in seperate charts - to have a summary of total sales by these categories.
+* Create a pivot table of the mean household sales by AGE_DESC and HH_COMP_DESC. 
+* Finally, check Which of our demographic have the highest average sales? - to understand potential marketing strategies and complementary benefits with Maven own customer base.
+
+```
+# read in sub sets of the columns, then
+# convert these column to category data type, to save ton of data for further join to transactions table, and having repeated column 
+dem_cols = ["AGE_DESC", "INCOME_DESC", "household_key", "HH_COMP_DESC"]
+dem_dtypes = {"AGE_DESC": "category", "INCOME_DESC": "category", "HH_COMP_DESC": "category"}
+demographics = pd.read_csv("data/hh_demographic.csv", usecols=dem_cols, dtype=dem_dtypes)
+```
+![05.png](resources/05.png)
+
+
 

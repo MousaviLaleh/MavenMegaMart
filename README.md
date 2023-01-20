@@ -44,7 +44,8 @@ dtypes = {
 # store the data into transaction dataframe
 transactions = pd.read_csv(path, dtype=dtypes, usecols=cols)
 '
-![01.png](resources/01.pg)
+
+![01.png](resources/01.png)
 
 #### create Data column based on the value of 'DAY' for 'transaction' table and drop the "DAY" column
 '
@@ -53,4 +54,5 @@ transactions = transactions.assign(
     + pd.to_timedelta(transactions["DAY"].sub(1).astype(str) + ' days'))
 ).drop(["DAY"], axis=1)
 '
+
 ![02.png](resources/02.png)

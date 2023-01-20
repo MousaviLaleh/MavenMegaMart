@@ -33,6 +33,7 @@ We also going to combine our data in some way to perform these analysis.
 ## Read the data and change the columns' data type
 
 ### transaction dataframe
+
 '
 path = "data/project_transactions.csv"
 cols = ["household_key", "BASKET_ID", "DAY", "PRODUCT_ID", "QUANTITY", "SALES_VALUE"]

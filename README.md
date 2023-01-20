@@ -220,6 +220,7 @@ This pivot table helps us to to look at the areas among young customers. Are the
 ```
 
 ![13.png](Resources/13.png)
+![14.png](Resources/14.png)
 
 The young customers are interested in SPIRITS ( alcohol )!
 

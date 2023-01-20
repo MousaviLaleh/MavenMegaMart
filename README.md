@@ -107,6 +107,8 @@ Ignoring the ramp of from Jan 2016 ( line orange ) and the sharp decline in the 
 
 Based on the bar chart, highest sales are on Monday and Tuesday followed by Sunday. It might be interesting to dive further into why more customers are coming in on these days.
 
+### Sum of Sales by Households
+![06.png](resources/06.png)
 
 ## demographics dataframe
 We want to understand the composition of our customers and which are our strongest customer segments?
@@ -128,6 +130,53 @@ dem_dtypes = {"AGE_DESC": "category", "INCOME_DESC": "category", "HH_COMP_DESC":
 demographics = pd.read_csv("data/hh_demographic.csv", usecols=dem_cols, dtype=dem_dtypes)
 ```
 ![05.png](resources/05.png)
+
+### Join ```household``` table to ```demographic``` table
+To analyze the demographics of our households
+```
+household_sales_demo = (household_sales.merge(demographics,
+                        how="inner",
+                        left_on= "household_key",
+                        right_on= "household_key"
+                        ))
+```
+
+![07.png](resources/07.png)
+
+We have 668 households for analysis.
+
+### Sum of Sales value by Age category
+![08.png](resources/08.png)
+
+### Sum of Sales value by Income category
+![09.png](resurces/09.png)
+
+This is the most common household income demographis in the US, but it worth nothing that even our under-15K and 25-34K demographics are much higher than some of the higher income demographic. so, if we are looking at the discount retailor, it makes sense that we're attracting a lot of these lower income groups and this is expected by a leadership.
+
+### Create Pivot Table
+To show the households composition by a heat-map. This shows us which our demographic is producing the most revenue by household, and also aloow us to think about ways we can combine our strategy in terms of marketing with our aquisition targets.
+```
+(household_sales_demo.pivot_table(index="AGE_DESC",
+                                  columns="HH_COMP_DESC",
+                                  values="SALES_VALUE",
+                                  aggfunc="mean",
+                                  margins=True)
+                     .style.background_gradient(cmap="RdYlGn", axis=None)
+ ```
+ ![10.png](resources/10.png)
+ 
+The heat-map shows that our average sales for single parent homes at a young age (19-24) have a very high sales. so, we should figure out how to help these single family homes as part of shopping experience. we might also look at focusing on families with children in general; is there a way that we can revamp our product distribution, is there a way that we can target our marketing more specificly towards these groups.
+
+
+## Product Demographic
+With the ``product``` we will go to:
+* Read in the product csv file.
+* Only read in product_id and department from the product table.
+* Join the product DataFrame to the original transactions and demographics tables, performing an inner join when joining both tables.
+* Finally, pivot the fully joined dataframe by AGE_DESC and DEPARTMENT, calculating the sum of sales. 
+* and take a look ate Which category is led by our youngest age demographic?
+
+![11.png](resources/11.png)
 
 
 

@@ -6,7 +6,9 @@ they’re looking to acquire, and they need to identify and deliver key insights
 
 **Our task is to analyze over 2 million transactions by product, household, and store to get a better understanding of the retailer’s main strengths. 
 From there, you need to review the company’s discount scheme to assess whether they can expect to attract customers without losing margin.**
+
 <br/>
+
 We are using Python to:
 - Read in multiple flat files efficiently.
 - Join tables to provide a single source of information.

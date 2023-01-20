@@ -166,7 +166,7 @@ To show the households composition by a heat-map. This shows us which our demogr
 The heat-map shows that our average sales for single parent homes at a young age (19-24) have a very high sales. so, we should figure out how to help these single family homes as part of shopping experience. we might also look at focusing on families with children in general; is there a way that we can revamp our product distribution, is there a way that we can target our marketing more specificly towards these groups.
 
 
-## Product Demographic
+## product dataframe
 For this analysis we will:
 * Read in the product csv file.
 * Only read in product_id and department from the product table.

@@ -28,7 +28,7 @@ We also going to combine our data in some way to perform these analysis.
 - Write out summary tables for stakeholders
 
 
-## transaction dataframe
+## Transaction Dataframe
 To start our analysis we :
 * First, read in the ```transactions``` data.
 * Read in the columns household_key, basket_id, STORE_ID, DAY, QUANTITY, and SALES_VALUE.
@@ -113,7 +113,7 @@ Based on the bar chart, highest sales are on Monday and Tuesday followed by Sund
 
 <br/>
 
-## demographics dataframe
+## Demographics Dataframe
 We want to understand the composition of our customers and which are our strongest customer segments?
 
 So, we're going to :
@@ -174,7 +174,7 @@ The heatmap shows that our average sales for single parent homes at a young age 
 
 <br/>
 
-## product dataframe
+## Product Dataframe
 For this analysis we will:
 * Read in the product csv file.
 * Only read in product_id and department from the product table.
@@ -196,6 +196,8 @@ trans_demo_dept.head()
 ```
 ![12.png](resources/12.png)
 
+<br/>
+
 ## Department by Age
 This pivot table helps us to to look at the areas among young customers. Are they going to be our next generation of customers for the company?
 ```
@@ -210,6 +212,10 @@ This pivot table helps us to to look at the areas among young customers. Are the
 ![13.png](resources/13.png)
 
 The young customers are interested in SPIRITS ( alcohol )!
+
+
+<br/>
+
 
 ### Export Pivot Table to an Excel File
 ```

@@ -195,7 +195,9 @@ For this analysis we will:
 
 <br/>
 
+
 ## Join All Tables Toghether
+
 ```
 trans_demo_dept = (transactions.merge(demographics, how="inner", left_on="household_key", right_on="household_key")
                                .merge(product, how="inner", left_on="PRODUCT_ID", right_on="PRODUCT_ID")
@@ -203,6 +205,7 @@ trans_demo_dept = (transactions.merge(demographics, how="inner", left_on="househ
 
 trans_demo_dept.head()
 ```
+
 ![12.png](Resources/12.png)
 
 <br/>
